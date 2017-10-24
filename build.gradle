@@ -25,8 +25,14 @@ task clean(type: Delete) {
 
 ext{
     versionVoce = 1;
-    versionName = "1.0.0";
+    versionName = "1.0.0"
 
-    supportVersion = '25.3.1';
-    butterknifeVersion = '8.8.1';
+    supportVersion = '25.3.1'
+    butterknifeVersion = '8.8.1'
+
+    geniusVersion = '2.0.0'
+    circleimagevewVersion = '2.1.0'
+    glideVersion = '3.7.0'
+
+    constraintVersion = '1.0.2'
 }
