@@ -11,9 +11,6 @@ import butterknife.BindView;
  */
 public class MainActivity extends Activity {
 
-	@BindView(R.id.tv_text)
-	TextView tv_text;
-
 	@Override
 	protected int getcontentLayoutId() {
 		return R.layout.activity_main;
@@ -22,6 +19,5 @@ public class MainActivity extends Activity {
 	@Override
 	protected void initWidget() {
 		super.initWidget();
-		tv_text.setText("Hello 你好");
 	}
 }
