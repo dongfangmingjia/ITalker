@@ -6,11 +6,13 @@
         <!--<item name="actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>-->
         <!--<item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>-->
 
+        <!--顶部导航条中的icon和二级字体的颜色-->
         <item name="colorControlNormal">@color/white_alpha_240</item>
         <item name="colorControlActivated">@color/textPrimary</item>
     </style>
 
     <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
+        <!--去除顶部状态栏-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@null</item>
