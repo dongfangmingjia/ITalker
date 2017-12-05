@@ -21,7 +21,7 @@ import butterknife.OnClick;
 /**
  * @author warner
  */
-public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener, NavHelper.OnTabChangedListener<Integer> {
 
 	@BindView(R.id.appbar)
 	View mLayAppbar;
@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 	@BindView(R.id.navigation)
 	BottomNavigationView mNavigation;
 
-	private NavHelper mHelper;
+	private NavHelper<Integer> mHelper;
 
 	@Override
 	protected int getcontentLayoutId() {
@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 	protected void initWidget() {
 		super.initWidget();
 
-		mHelper = new NavHelper<>();
+		mHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(), this);
 		mNavigation.setOnNavigationItemSelectedListener(this);
 		Glide.with(this).load(R.mipmap.bg_src_morning).centerCrop().into(new ViewTarget<View, GlideDrawable>(mLayAppbar) {
 			@Override
@@ -66,7 +66,11 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-		mTitle.setText(item.getTitle());
-		return true;
+		return mHelper.performClickMenu(item.getItemId());
+	}
+
+	@Override
+	public void onTabChange(NavHelper.Tab<Integer> newTab, NavHelper.Tab<Integer> oldTab) {
+
 	}
 }

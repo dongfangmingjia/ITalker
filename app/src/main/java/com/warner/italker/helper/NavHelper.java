@@ -24,10 +24,10 @@ public class NavHelper<T> {
     // 当前选中的Tab
     private Tab<T> currentTab;
 
-    public NavHelper(int containerId, Context context, FragmentManager fragmentManager,
+    public NavHelper(Context context, int containerId, FragmentManager fragmentManager,
                      OnTabChangedListener<T> listener) {
-        this.containerId = containerId;
         this.context = context;
+        this.containerId = containerId;
         this.fragmentManager = fragmentManager;
         this.listener = listener;
     }
@@ -150,6 +150,11 @@ public class NavHelper<T> {
      * @param <T> 泛型的额外参数
      */
     public static class Tab<T> {
+        public Tab(Class<?> clx, T extra) {
+            this.clx = clx;
+            this.extra = extra;
+        }
+
         // fragment对应的Class信息
         public Class<?> clx;
         // 额外字段用户自己设定需要使用
