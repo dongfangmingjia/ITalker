@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,66 +7,74 @@
     tools:context="com.warner.italker.MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarWithStatusBarSize">
-        
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:elevation="@dimen/len_2"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/statusBarSize"
             android:paddingLeft="@dimen/len_4"
-            android:paddingRight="@dimen/len_4"
-            android:layout_marginTop="@dimen/statusBarSize">
+            android:paddingRight="@dimen/len_4">
 
             <com.warner.common.app.widget.PortraitView
+                android:id="@+id/im_portrait"
                 android:layout_width="@dimen/portraitSize"
                 android:layout_height="@dimen/portraitSize"
                 android:layout_margin="@dimen/len_4"
-                android:padding="@dimen/len_4"
-                android:clickable="true"
                 android:foreground="@drawable/ic_touch_menu"
-                android:src="@mipmap/default_portrait"/>
+                android:padding="@dimen/len_4"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/default_portrait" />
 
             <TextView
-                android:textColor="@color/white"
+                android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
                 android:layout_gravity="center"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title"/>
 
             <ImageView
-                android:tint="@color/white"
-                android:padding="@dimen/len_10"
+                android:id="@+id/im_search"
                 android:layout_width="@dimen/len_40"
                 android:layout_height="@dimen/len_40"
+                android:layout_gravity="right|center_vertical"
                 android:layout_margin="@dimen/len_4"
                 android:foreground="@drawable/ic_touch_menu"
-                android:layout_gravity="right|center_vertical"
-                android:clickable="true"
-                android:src="@drawable/ic_search"/>
+                android:padding="@dimen/len_10"
+                android:src="@drawable/ic_search"
+                android:scaleType="centerInside"
+                android:tint="?attr/toolbarMenuIconColor" />
 
         </FrameLayout>
-        
+
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/lay_content"
+        android:id="@+id/lay_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/len_52"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <net.qiujuer.genius.ui.widget.FloatActionButton
-        android:tint="@color/white"
-        android:padding="@dimen/len_20"
-        android:src="@drawable/ic_group_add"
+        android:id="@+id/btn_action"
         android:layout_width="@dimen/len_52"
         android:layout_height="@dimen/len_52"
         android:layout_marginBottom="@dimen/len_68"
         android:layout_marginRight="@dimen/len_16"
-        app:layout_anchor="@id/lay_content"
-        app:layout_anchorGravity="bottom|right"
-        app:gBackgroundColor="@color/colorAccent"/>
+        android:padding="@dimen/len_20"
+        android:src="@drawable/ic_group_add"
+        android:tint="@color/white"
+        app:gBackgroundColor="@color/colorAccent"
+        app:layout_anchor="@id/lay_container"
+        app:layout_anchorGravity="bottom|right" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
