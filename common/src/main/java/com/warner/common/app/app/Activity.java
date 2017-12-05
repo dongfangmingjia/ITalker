@@ -1,5 +1,6 @@
 package com.warner.common.app.app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -67,6 +68,7 @@ public abstract class Activity extends AppCompatActivity {
 	@Override
 	public void onBackPressed() {
 		// 获取当前activity下的所有的Fragment
+		@SuppressLint("RestrictedApi")
 		List<Fragment> fragments = getSupportFragmentManager().getFragments();
 		// 判断是否为空
 		if (fragments != null && fragments.size() > 0) {

@@ -1,6 +1,8 @@
 package com.warner.italker;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.warner.common.app.app.Activity;
 import com.warner.common.app.widget.PortraitView;
+import com.warner.italker.helper.NavHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -18,7 +21,7 @@ import butterknife.OnClick;
 /**
  * @author warner
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 	@BindView(R.id.appbar)
 	View mLayAppbar;
@@ -31,6 +34,8 @@ public class MainActivity extends Activity {
 	@BindView(R.id.navigation)
 	BottomNavigationView mNavigation;
 
+	private NavHelper mHelper;
+
 	@Override
 	protected int getcontentLayoutId() {
 		return R.layout.activity_main;
@@ -39,6 +44,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void initWidget() {
 		super.initWidget();
+
+		mHelper = new NavHelper<>();
+		mNavigation.setOnNavigationItemSelectedListener(this);
 		Glide.with(this).load(R.mipmap.bg_src_morning).centerCrop().into(new ViewTarget<View, GlideDrawable>(mLayAppbar) {
 			@Override
 			public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
@@ -54,5 +62,11 @@ public class MainActivity extends Activity {
 		} else if (view.getId() == R.id.btn_action) {
 
 		}
+	}
+
+	@Override
+	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+		mTitle.setText(item.getTitle());
+		return true;
 	}
 }
