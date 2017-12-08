@@ -1,4 +1,4 @@
-package com.warner.common.app.widget;
+package com.warner.common.app.widget.recycler;
 
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.warner.common.R;
-import com.warner.common.app.widget.recycler.AdapterCallBack;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -168,6 +167,18 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 
 
 	@Override
+	public void updata(Data data, ViewHolder<Data> holder) {
+		// 获取当前holder坐标
+		int position = holder.getAdapterPosition();
+		if (position >= 0) {
+			// 进行数据的移除与更新
+			mDataList.remove(position);
+			mDataList.add(position, data);
+			notifyItemChanged(position);
+		}
+	}
+
+	@Override
 	public void onClick(View v) {
 		ViewHolder holder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
 		if (mListener != null) {
@@ -225,6 +236,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 		 */
 		void bind(Data data) {
 			this.mData = data;
+			onBind(data);
 		}
 
 		/**触发绑定数据时的回调，必须复写*/
@@ -238,6 +250,23 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 			if (this.mCallBack != null) {
 				mCallBack.updata(mData, this);
 			}
+		}
+	}
+
+	/**
+	 * 对回调接口做一次实现
+	 * @param <Data>
+	 */
+	public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data> {
+
+		@Override
+		public void onItemClick(ViewHolder holder, Data data) {
+
+		}
+
+		@Override
+		public void onItemLongClick(ViewHolder holder, Data data) {
+
 		}
 	}
 }
