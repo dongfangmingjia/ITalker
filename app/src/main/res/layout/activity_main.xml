@@ -67,6 +67,7 @@
         android:id="@+id/btn_action"
         android:layout_width="@dimen/len_52"
         android:layout_height="@dimen/len_52"
+        android:translationY="@dimen/len_76"
         android:layout_marginBottom="@dimen/len_68"
         android:layout_marginRight="@dimen/len_16"
         android:padding="@dimen/len_20"
