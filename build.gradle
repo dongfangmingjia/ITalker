@@ -4,6 +4,7 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -16,6 +17,8 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://www.jitpack.io" }
+        google()
     }
 }
 
@@ -35,4 +38,5 @@ ext{
     glideVersion = '3.7.0'
 
     constraintVersion = '1.0.2'
+    ucropVersion = "2.2.0-native"
 }

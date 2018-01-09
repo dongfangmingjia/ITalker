@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
  * Created by warner on 2017/9/29.
  */
 
-public abstract class Activity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,9 +74,9 @@ public abstract class Activity extends AppCompatActivity {
 		if (fragments != null && fragments.size() > 0) {
 			for (Fragment fragment :fragments) {
 				// 判断是否是我们能够处理的fragment的类型
-				if (fragment instanceof com.warner.common.app.app.Fragment) {
+				if (fragment instanceof BaseFragment) {
 					// 判断是否拦截了返回按钮
-					if (((com.warner.common.app.app.Fragment) fragment).onBackPressed()) {
+					if (((BaseFragment) fragment).onBackPressed()) {
 						// 拦截返回按钮，直接return
 						return;
 					}

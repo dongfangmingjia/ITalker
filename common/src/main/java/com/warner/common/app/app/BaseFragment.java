@@ -15,7 +15,7 @@ import butterknife.Unbinder;
  * Created by warner on 2017/9/29.
  */
 
-public abstract class Fragment extends android.support.v4.app.Fragment {
+public abstract class BaseFragment extends android.support.v4.app.Fragment {
 
 	private View mRoot;
 	private Unbinder mUnbinder;

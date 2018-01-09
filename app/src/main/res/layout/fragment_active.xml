@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.warner.common.app.widget.GalleyView
-        android:id="@+id/galleyView"
+    <com.warner.common.app.widget.GalleryView
+        android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="1dp"/>

@@ -2,7 +2,6 @@ package com.warner.italker;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +13,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
-import com.warner.common.app.app.Activity;
+import com.warner.common.app.app.BaseActivity;
 import com.warner.common.app.widget.PortraitView;
-import com.warner.italker.fragment.ActiveFragment;
-import com.warner.italker.fragment.ContactFragment;
-import com.warner.italker.fragment.GroupFragment;
+import com.warner.italker.activities.AccountActivity;
+import com.warner.italker.fragment.main.ActiveFragment;
+import com.warner.italker.fragment.main.ContactFragment;
+import com.warner.italker.fragment.main.GroupFragment;
 import com.warner.italker.helper.NavHelper;
 
 import net.qiujuer.genius.ui.Ui;
@@ -32,7 +32,7 @@ import butterknife.OnClick;
 /**
  * @author warner
  */
-public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener, NavHelper.OnTabChangedListener<Integer> {
+public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener, NavHelper.OnTabChangedListener<Integer> {
 
 	@BindView(R.id.appbar)
 	View mLayAppbar;
@@ -91,7 +91,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 		if (view.getId() == R.id.im_search) {
 
 		} else if (view.getId() == R.id.btn_action) {
-
+			AccountActivity.show(this);
 		}
 	}
 

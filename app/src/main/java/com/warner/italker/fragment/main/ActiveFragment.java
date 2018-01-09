@@ -1,7 +1,7 @@
-package com.warner.italker.fragment;
+package com.warner.italker.fragment.main;
 
-import com.warner.common.app.app.Fragment;
-import com.warner.common.app.widget.GalleyView;
+import com.warner.common.app.app.BaseFragment;
+import com.warner.common.app.widget.GalleryView;
 import com.warner.italker.R;
 
 import butterknife.BindView;
@@ -10,10 +10,10 @@ import butterknife.BindView;
  * Created by warner on 2017/12/8.
  */
 
-public class ActiveFragment extends Fragment {
+public class ActiveFragment extends BaseFragment {
 
-    @BindView(R.id.galleyView)
-    GalleyView mGalleyView;
+    @BindView(R.id.galleryView)
+    GalleryView mGalleyView;
 
     @Override
     protected int getContentLayoutId() {
@@ -23,7 +23,7 @@ public class ActiveFragment extends Fragment {
     @Override
     protected void initData() {
         super.initData();
-        mGalleyView.setup(getLoaderManager(), new GalleyView.SelectedChangeListener() {
+        mGalleyView.setup(getLoaderManager(), new GalleryView.SelectedChangeListener() {
             @Override
             public void onSelectedCountChanged(int count) {
 
