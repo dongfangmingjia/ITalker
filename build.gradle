@@ -39,4 +39,7 @@ ext{
 
     constraintVersion = '1.0.2'
     ucropVersion = "2.2.0-native"
+
+    easyPMVersion = "0.3.0"
+    ossVersion = '2.3.0'
 }

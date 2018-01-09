@@ -41,6 +41,7 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     compile "com.yalantis:ucrop:$rootProject.ext.ucropVersion"
+    compile "pub.devrel:easypermissions:$rootProject.ext.easyPMVersion"
     testCompile 'junit:junit:4.12'
     compile project(':common')
 }
