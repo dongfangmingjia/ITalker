@@ -73,7 +73,7 @@ public class GalleryFragment extends BottomSheetDialogFragment implements Galler
         void onSelectedImage(String path);
     }
 
-    private class TransStatusBottomSheetDialog extends BottomSheetDialog {
+    public static class TransStatusBottomSheetDialog extends BottomSheetDialog {
 
         public TransStatusBottomSheetDialog(@NonNull Context context) {
             super(context);

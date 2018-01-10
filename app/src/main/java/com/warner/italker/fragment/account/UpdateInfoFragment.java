@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide;
 import com.warner.common.app.BaseApplication;
 import com.warner.common.app.BaseFragment;
 import com.warner.common.widget.PortraitView;
+import com.warner.factory.Factory;
+import com.warner.factory.net.UploadHelper;
 import com.warner.italker.R;
 import com.warner.italker.fragment.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;
@@ -71,7 +73,15 @@ public class UpdateInfoFragment extends BaseFragment {
     }
 
 
-    private void loadPortrait(Uri uri) {
-        Glide.with(this).load(uri).asBitmap().centerCrop().into(mPortrait);
+    private void loadPortrait(final Uri uri) {
+        final String path = uri.getPath();
+//        Glide.with(this).load(uri).asBitmap().centerCrop().into(mPortrait);
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url = UploadHelper.uploadPortrait(path);
+//                Glide.with(getActivity()).load(url).centerCrop().into(mPortrait);
+            }
+        });
     }
 }

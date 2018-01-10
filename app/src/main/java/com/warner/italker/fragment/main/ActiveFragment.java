@@ -12,9 +12,6 @@ import butterknife.BindView;
 
 public class ActiveFragment extends BaseFragment {
 
-    @BindView(R.id.galleryView)
-    GalleryView mGalleyView;
-
     @Override
     protected int getContentLayoutId() {
         return R.layout.fragment_active;
@@ -23,11 +20,5 @@ public class ActiveFragment extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
-        mGalleyView.setup(getLoaderManager(), new GalleryView.SelectedChangeListener() {
-            @Override
-            public void onSelectedCountChanged(int count) {
-
-            }
-        });
     }
 }

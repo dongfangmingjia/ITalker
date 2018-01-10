@@ -1,6 +1,5 @@
 package com.warner.common.app;
 
-import android.app.Application;
 import android.os.SystemClock;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
@@ -14,7 +13,7 @@ import java.io.File;
  * Created by warner on 2018/1/9.
  */
 
-public class BaseApplication extends Application {
+public class BaseApplication extends android.app.Application {
 
     private static BaseApplication instance;
 
@@ -25,7 +24,7 @@ public class BaseApplication extends Application {
     }
 
 
-    public static Application getInstance() {
+    public static BaseApplication getInstance() {
         return instance;
     }
 

@@ -1,5 +1,7 @@
-package com.warner.italker;
+package com.warner.italker.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -15,7 +17,9 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.warner.common.app.BaseActivity;
 import com.warner.common.widget.PortraitView;
+import com.warner.italker.R;
 import com.warner.italker.activities.AccountActivity;
+import com.warner.italker.fragment.assist.PermissionsFragment;
 import com.warner.italker.fragment.main.ActiveFragment;
 import com.warner.italker.fragment.main.ContactFragment;
 import com.warner.italker.fragment.main.GroupFragment;
@@ -54,6 +58,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 		return R.layout.activity_main;
 	}
 
+
+	public static void show(Context context) {
+		context.startActivity(new Intent(context, MainActivity.class));
+	}
+
 	@Override
 	protected void initWidget() {
 		super.initWidget();
@@ -66,6 +75,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 				this.view.setBackground(resource.getCurrent());
 			}
 		});
+
 	}
 
 	/**
