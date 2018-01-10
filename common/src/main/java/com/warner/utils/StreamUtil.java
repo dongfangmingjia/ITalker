@@ -1,4 +1,4 @@
-package com.warner.common.app.utils;
+package com.warner.utils;
 
 import android.text.TextUtils;
 

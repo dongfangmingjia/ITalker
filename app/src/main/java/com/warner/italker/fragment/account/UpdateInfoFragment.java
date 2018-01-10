@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.bumptech.glide.Glide;
-import com.warner.common.app.app.BaseApplication;
-import com.warner.common.app.app.BaseFragment;
-import com.warner.common.app.widget.PortraitView;
+import com.warner.common.app.BaseApplication;
+import com.warner.common.app.BaseFragment;
+import com.warner.common.widget.PortraitView;
 import com.warner.italker.R;
 import com.warner.italker.fragment.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;

@@ -21,7 +21,7 @@
             android:paddingLeft="@dimen/len_4"
             android:paddingRight="@dimen/len_4">
 
-            <com.warner.common.app.widget.PortraitView
+            <com.warner.common.widget.PortraitView
                 android:id="@+id/im_portrait"
                 android:layout_width="@dimen/portraitSize"
                 android:layout_height="@dimen/portraitSize"

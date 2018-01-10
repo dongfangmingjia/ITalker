@@ -1,4 +1,4 @@
-package com.warner.common.app.utils;
+package com.warner.utils;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

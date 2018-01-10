@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 
-import com.warner.common.app.app.BaseActivity;
+import com.warner.common.app.BaseActivity;
 import com.warner.italker.R;
 import com.warner.italker.fragment.account.UpdateInfoFragment;
 

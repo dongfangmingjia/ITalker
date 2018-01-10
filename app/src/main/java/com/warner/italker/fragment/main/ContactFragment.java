@@ -1,6 +1,6 @@
 package com.warner.italker.fragment.main;
 
-import com.warner.common.app.app.BaseFragment;
+import com.warner.common.app.BaseFragment;
 import com.warner.italker.R;
 
 /**

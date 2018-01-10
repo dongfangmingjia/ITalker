@@ -13,11 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.warner.common.app.tools.UITool;
-import com.warner.common.app.widget.GalleryView;
+import com.warner.common.tools.UITool;
+import com.warner.common.widget.GalleryView;
 import com.warner.italker.R;
-
-import net.qiujuer.genius.ui.Ui;
 
 /**
  * A simple {@link Fragment} subclass.
