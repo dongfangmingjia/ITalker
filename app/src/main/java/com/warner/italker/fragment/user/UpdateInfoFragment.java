@@ -1,4 +1,4 @@
-package com.warner.italker.fragment.account;
+package com.warner.italker.fragment.user;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

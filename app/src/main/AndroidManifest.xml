@@ -27,10 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activities.MainActivity"
+        <activity
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Main"/>
+            android:theme="@style/AppTheme.Main" />
         <activity
             android:name=".activities.AccountActivity"
             android:screenOrientation="portrait"
@@ -39,6 +39,7 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity android:name=".activities.UserActivity"></activity>
     </application>
 
 </manifest>
