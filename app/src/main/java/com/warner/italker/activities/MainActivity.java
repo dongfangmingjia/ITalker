@@ -18,8 +18,6 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.warner.common.app.BaseActivity;
 import com.warner.common.widget.PortraitView;
 import com.warner.italker.R;
-import com.warner.italker.activities.AccountActivity;
-import com.warner.italker.fragment.assist.PermissionsFragment;
 import com.warner.italker.fragment.main.ActiveFragment;
 import com.warner.italker.fragment.main.ContactFragment;
 import com.warner.italker.fragment.main.GroupFragment;
