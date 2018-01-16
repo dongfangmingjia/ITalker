@@ -20,7 +20,7 @@
         <activity
             android:name=".LaunchActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.TransStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,6 +40,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.UserActivity" />
+
+        <receiver android:name=".MessageReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="1000">
+
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

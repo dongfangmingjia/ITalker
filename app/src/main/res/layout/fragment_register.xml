@@ -159,7 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="@dimen/len_8"
+        android:layout_marginTop="@dimen/len_16"
         android:paddingEnd="@dimen/len_16"
         android:paddingStart="@dimen/len_16">
 
@@ -214,7 +214,7 @@
             android:layout_width="@dimen/len_36"
             android:layout_height="@dimen/len_36"
             android:layout_gravity="center"
-            android:background="@color/trans"
+            app:gBackgroundColor="@color/trans"
             app:gForegroundColor="@color/white"
             app:gForegroundLineSize="1dp"
             app:gAutoRun="false"/>

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.warner.italker.fragment.account.LoginFragment">
+    tools:background="@drawable/bg_src_tianjin"
+    tools:context="net.qiujuer.italker.push.frags.account.LoginFragment">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -12,8 +13,9 @@
         android:background="@drawable/bg_gradient_black"
         android:paddingBottom="@dimen/len_28"
         android:paddingTop="@dimen/len_40"
-        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:title="@string/label_login_welcome" />
+        app:title="@string/label_login_welcome"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +27,6 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/len_8"
         android:paddingTop="@dimen/len_8">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,11 +46,10 @@
 
             <EditText
                 android:id="@+id/edit_phone"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/len_2"
                 android:layout_marginStart="@dimen/len_4"
-                android:layout_weight="1"
                 android:background="@null"
                 android:hint="@string/label_phone"
                 android:inputType="phone"
@@ -60,7 +60,6 @@
                 android:textColorHint="@color/textSecond"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_14" />
-
         </LinearLayout>
 
         <View
@@ -90,11 +89,10 @@
 
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/len_2"
                 android:layout_marginStart="@dimen/len_4"
-                android:layout_weight="1"
                 android:background="@null"
                 android:hint="@string/label_password"
                 android:inputType="textPassword"
@@ -114,9 +112,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="@dimen/len_8"
-        android:paddingEnd="@dimen/len_16"
-        android:paddingStart="@dimen/len_16">
+        android:layout_marginEnd="@dimen/len_16"
+        android:layout_marginTop="@dimen/len_16">
 
         <TextView
             android:id="@+id/txt_go_register"
@@ -130,7 +127,6 @@
             android:textSize="@dimen/font_14"
             android:textStyle="bold" />
 
-
         <ImageView
             android:layout_width="@dimen/len_12"
             android:layout_height="@dimen/len_12"
@@ -139,13 +135,12 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_direction_right"
             android:tint="@color/white" />
-
     </FrameLayout>
 
-    <android.support.v4.widget.Space
+    <Space
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="2" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -160,7 +155,7 @@
             android:background="@drawable/sel_btn_bg_black_alpha_44"
             android:text="@string/label_login"
             android:textColor="@color/white"
-            app:gTouchColor="@color/white_alpha_48"
+            app:gTouchColor="@color/colorAccentAlpha"
             app:gTouchCornerRadius="22dp"
             app:gTouchEffect="ripple" />
 
@@ -169,10 +164,9 @@
             android:layout_width="@dimen/len_36"
             android:layout_height="@dimen/len_36"
             android:layout_gravity="center"
-            android:background="@color/trans"
             app:gAutoRun="false"
+            app:gBackgroundColor="@color/trans"
             app:gForegroundColor="@color/white"
             app:gForegroundLineSize="1dp" />
-
     </FrameLayout>
 </LinearLayout>
