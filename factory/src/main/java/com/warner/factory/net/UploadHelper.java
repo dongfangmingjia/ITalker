@@ -20,10 +20,10 @@ import java.util.Date;
 public class UploadHelper {
 
     private static final String ENDPOINT = "http://oss-cn-hongkong.aliyuncs.com";
-    private static final String BUCKET_NAME = "italker-new";
+    private static final String BUCKET_NAME = "italker-me";
 
     private static OSS getClient() {
-        OSSPlainTextAKSKCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider("LTAIYQD07p05pHQW", "2txxzT8JXiHKEdEjylumFy6sXcDQ0G");
+        OSSPlainTextAKSKCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider("LTAIaGYW9EDLJSj5", "K10TfzHhvAjKRJX7arEvTs976I9aG9");
         return new OSSClient(Factory.app(), ENDPOINT, credentialProvider);
     }
 

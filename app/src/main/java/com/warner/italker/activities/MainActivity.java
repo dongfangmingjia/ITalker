@@ -2,6 +2,7 @@ package com.warner.italker.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.warner.common.app.BaseActivity;
 import com.warner.common.widget.PortraitView;
+import com.warner.factory.persistence.Account;
 import com.warner.italker.R;
 import com.warner.italker.fragment.main.ActiveFragment;
 import com.warner.italker.fragment.main.ContactFragment;
@@ -62,6 +64,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 	}
 
 	@Override
+	protected boolean initArgs(Bundle bundle) {
+		if (Account.isComplete()) {
+			// 用户信息完善，走正常流程
+			return super.initArgs(bundle);
+		} else {
+			UserActivity.show(this);
+			return false;
+		}
+	}
+
+	@Override
 	protected void initWidget() {
 		super.initWidget();
 
@@ -97,9 +110,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 	@OnClick({R.id.im_search, R.id.btn_action})
 	void onViewClick(View view) {
 		if (view.getId() == R.id.im_search) {
-
+			// 在群界面，点击顶部的搜索按钮进入群搜索界面
+			// 其他的都为人搜索界面
+			if (Objects.equals(mHelper.getCurrentTab().extra, R.string.title_group)) {
+				SearchActivity.show(this, SearchActivity.TYPE_GROUP);
+			} else {
+				SearchActivity.show(this, SearchActivity.TYPE_USER);
+			}
 		} else if (view.getId() == R.id.btn_action) {
-			AccountActivity.show(this);
+			// 浮动按钮点击时，判断当前界面是群还是联系人界面
+			// 若是群，则打开创建群的界面
+			if (Objects.equals(mHelper.getCurrentTab().extra, R.string.title_group)) {
+
+			} else {
+				// 若是其他，都打开添加用户界面
+				SearchActivity.show(this, SearchActivity.TYPE_USER);
+			}
 		}
 	}
 

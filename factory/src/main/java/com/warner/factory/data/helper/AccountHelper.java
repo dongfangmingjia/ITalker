@@ -76,7 +76,7 @@ public class AccountHelper {
         public void onResponse(Call<RspModel<AccountRspModel>> call, Response<RspModel<AccountRspModel>> response) {
             // 请求成功
             RspModel<AccountRspModel> rspModel = response.body();
-            if (rspModel.success()) {
+            if (rspModel != null && rspModel.success()) {
                 // 获取实体
                 AccountRspModel accountRspModel = rspModel.getResult();
 

@@ -1,6 +1,8 @@
 package com.warner.factory.presenter;
 
 /**
+ * presenter基类，每个Presenter必须继承，此类协调了View与Presenter之间的相互引用
+ *
  * Created by warner on 2018/1/15.
  */
 

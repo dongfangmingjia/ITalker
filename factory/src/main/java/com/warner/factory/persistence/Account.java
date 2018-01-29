@@ -11,6 +11,8 @@ import com.warner.factory.model.db.User;
 import com.warner.factory.model.db.User_Table;
 
 /**
+ * 用户账户持续化的类
+ *
  * Created by warner on 2018/1/16.
  */
 
@@ -64,8 +66,8 @@ public class Account {
 
 
     public static boolean isLogin() {
-
-        return !TextUtils.isEmpty(userId) && !TextUtils.isEmpty(token);
+        return true;
+//        return !TextUtils.isEmpty(userId) && !TextUtils.isEmpty(token);
     }
 
     /**
@@ -73,7 +75,14 @@ public class Account {
      * @return
      */
     public static boolean isComplete() {
-        return isLogin();
+//        if (isLogin()) {
+//            User self = getUser();
+//            return !TextUtils.isEmpty(self.getDesc())
+//                    && !TextUtils.isEmpty(self.getPortrait())
+//                    && self.getSex() != 0;
+//        }
+//        return false;
+        return true;
     }
 
     /**
@@ -81,7 +90,8 @@ public class Account {
      * @return
      */
     public static boolean isBind() {
-        return Account.mIsBind;
+        return true;
+//        return Account.mIsBind;
     }
 
 

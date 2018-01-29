@@ -41,16 +41,22 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.UserActivity" />
 
-        <receiver android:name=".MessageReceiver"
+        <receiver
+            android:name=".MessageReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="1000">
-
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}"/>
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}" />
             </intent-filter>
-
         </receiver>
+
+        <activity
+            android:name=".activities.SearchActivity"
+            android:label="@string/title_search"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransStatusBar" />
+        <activity android:name=".activities.MessageActivity"></activity>
     </application>
 
 </manifest>
