@@ -66,8 +66,7 @@ public class Account {
 
 
     public static boolean isLogin() {
-        return true;
-//        return !TextUtils.isEmpty(userId) && !TextUtils.isEmpty(token);
+        return !TextUtils.isEmpty(userId) && !TextUtils.isEmpty(token);
     }
 
     /**
@@ -75,14 +74,13 @@ public class Account {
      * @return
      */
     public static boolean isComplete() {
-//        if (isLogin()) {
-//            User self = getUser();
-//            return !TextUtils.isEmpty(self.getDesc())
-//                    && !TextUtils.isEmpty(self.getPortrait())
-//                    && self.getSex() != 0;
-//        }
-//        return false;
-        return true;
+        if (isLogin()) {
+            User self = getUser();
+            return !TextUtils.isEmpty(self.getDesc())
+                    && !TextUtils.isEmpty(self.getPortrait())
+                    && self.getSex() != 0;
+        }
+        return false;
     }
 
     /**
@@ -90,8 +88,7 @@ public class Account {
      * @return
      */
     public static boolean isBind() {
-        return true;
-//        return Account.mIsBind;
+        return Account.mIsBind;
     }
 
 
@@ -131,5 +128,9 @@ public class Account {
      */
     public static String getToken() {
         return Account.token;
+    }
+
+    public static String getUserId() {
+        return Account.userId;
     }
 }

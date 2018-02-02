@@ -8,6 +8,12 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.warner.common.app.BaseApplication;
 import com.warner.factory.data.DataSource;
+import com.warner.factory.data.group.GroupCenter;
+import com.warner.factory.data.group.GroupDispatcher;
+import com.warner.factory.data.message.MessageCenter;
+import com.warner.factory.data.message.MessageDispatcher;
+import com.warner.factory.data.user.UserCenter;
+import com.warner.factory.data.user.UserDispatcher;
 import com.warner.factory.model.api.RspModel;
 import com.warner.factory.persistence.Account;
 import com.warner.factory.utils.DBFlowExclusionStrategy;
@@ -154,4 +160,29 @@ public class Factory {
     public static void dispatchPush(String message) {
 
     }
+
+    /**
+     * 获取用户中心的实现类
+     * @return
+     */
+    public static UserCenter getUserCenter() {
+        return UserDispatcher.getInstance();
+    }
+
+    /**
+     * 获取消息中心的实现类
+     * @return
+     */
+    public static MessageCenter getMessageCenter() {
+        return MessageDispatcher.getInstance();
+    }
+
+    /**
+     * 获取群的实现类
+     * @return
+     */
+    public static GroupCenter getGroupCenter() {
+        return GroupDispatcher.getInstance();
+    }
+
 }

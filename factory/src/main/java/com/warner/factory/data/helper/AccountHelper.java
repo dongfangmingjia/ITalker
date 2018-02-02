@@ -82,7 +82,7 @@ public class AccountHelper {
 
                 User user = accountRspModel.getUser();
                 // 进行数据库写入和缓存绑定
-                user.save();
+                DBHelper.save(User.class, user);
                 Account.login(accountRspModel);
 
                 // 判断绑定状态，是否绑定设备
