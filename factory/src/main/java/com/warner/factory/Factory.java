@@ -4,6 +4,7 @@ import android.support.annotation.StringRes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.warner.common.app.BaseApplication;
@@ -14,10 +15,18 @@ import com.warner.factory.data.message.MessageCenter;
 import com.warner.factory.data.message.MessageDispatcher;
 import com.warner.factory.data.user.UserCenter;
 import com.warner.factory.data.user.UserDispatcher;
+import com.warner.factory.model.api.PushModel;
 import com.warner.factory.model.api.RspModel;
+import com.warner.factory.model.card.GroupCard;
+import com.warner.factory.model.card.GroupMemberCard;
+import com.warner.factory.model.card.MessageCard;
+import com.warner.factory.model.card.UserCard;
 import com.warner.factory.persistence.Account;
 import com.warner.factory.utils.DBFlowExclusionStrategy;
+import com.warner.utils.CollectionUtil;
 
+import java.lang.reflect.Type;
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -158,7 +167,50 @@ public class Factory {
      * @param message
      */
     public static void dispatchPush(String message) {
+        // 首先检查登录状态
+        if (!Account.isLogin()) {
+            return;
+        }
+        PushModel model = PushModel.decode(message);
+        if (model != null) {
+            // 对推送集合进行遍历
+            for (PushModel.Entity entity : model.getEntities()) {
+                switch (entity.type) {
+                    case PushModel.ENTITY_TYPE_LOGOUT:
+                        // 退出登录情况下，直接返回，不可继续
+                        instance.logout();
+                        return;
+                    case PushModel.ENTITY_TYPE_MESSAGE:
+                        // 普通消息
+                        MessageCard messageCard = getGson().fromJson(entity.content, MessageCard.class);
+                        getMessageCenter().dispatch(messageCard);
+                        break;
+                    case PushModel.ENTITY_TYPE_ADD_FRIEND:
+                        // 好友添加
+                        UserCard userCard = getGson().fromJson(entity.content, UserCard.class);
+                        getUserCenter().dispatch(userCard);
+                        break;
+                    case PushModel.ENTITY_TYPE_ADD_GROUP:
+                        // 群添加
+                        GroupCard groupCard = getGson().fromJson(entity.content, GroupCard.class);
+                        getGroupCenter().dispatch(groupCard);
+                        break;
+                    case PushModel.ENTITY_TYPE_ADD_GROUP_MEMBERS:
+                    case PushModel.ENTITY_TYPE_MODIFY_GROUP_MEMBERS:
+                        // 群成员变更
+                        TypeToken<List<GroupMemberCard>> typeToken = new TypeToken<List<GroupMemberCard>>() {
+                        };
+                        Type type = typeToken.getType();
+                        List<GroupMemberCard> memberCards = getGson().fromJson(entity.content, type);
+                        getGroupCenter().dispatch(CollectionUtil.toArray(memberCards, GroupMemberCard.class));
+                        break;
+                    case PushModel.ENTITY_TYPE_EXIT_GROUP_MEMBERS:
+                        // 成员退出
 
+                        break;
+                }
+            }
+        }
     }
 
     /**

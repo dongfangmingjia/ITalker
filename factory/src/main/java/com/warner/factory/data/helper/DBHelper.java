@@ -264,7 +264,7 @@ public class DBHelper {
      *
      * @param <Data>
      */
-    public interface ChangedListener<Data> {
+    public interface ChangedListener<Data extends BaseModel> {
         /**
          * 数据保存的更新
          */
